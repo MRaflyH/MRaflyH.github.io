@@ -68,7 +68,7 @@ function draw_object() {
     document.getElementById("objectx").innerHTML = "Object X Coordinate : " + (-(object.x + object.width / 2 - canvas.width / 2)).toFixed(2)+" cm";
     document.getElementById("objecty").innerHTML = "Object Y Coordinate : " + (-(object.y - canvas.height / 2).toFixed(2))+" cm";
     document.getElementById("imagex").innerHTML = "Image X Coordinate : " + (image.x + image.width / 2 - canvas.width / 2).toFixed(2)+" cm";
-    document.getElementById("imagey").innerHTML = "Image Y Coordinate : " + (image.y - canvas.height / 2).toFixed(2)+" cm";
+    document.getElementById("imagey").innerHTML = "Image Y Coordinate : " + (-(image.y - canvas.height / 2)).toFixed(2)+" cm";
 }
 
 let offsetX, offsetY;
