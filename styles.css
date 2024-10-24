@@ -52,8 +52,14 @@ h1 {
 }
 
 /* Footer */
-.footer {
-    border: 5px;
+footer {
+    font-family: var(--head-font);
+    color: var(--color1);
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* Title */
