@@ -9,22 +9,36 @@
 </head>
 <body>
     <header class="header">
-        <div class="title">Virtual Lab</div>
+        <div class="title">Rafly's Cauldron</div>
         <div class="navs">
             <a href="index.html" class="nav">Home</a>
         </div>
     </header>
     <section class="hero">
-        <h1 class="heading">Lens Simulation - Physics</h1>
-        <p> Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. Ini adalah teks sangat panjang. </p>
+        <h1>Lens Simulation - Physics</h1>
+        <p> A lens is merely a carefully ground or molded piece of transparent material that refracts light rays in such as way as to form an image. Lenses can be thought of as a series of tiny refracting prisms, each of which refracts light to produce their own image. When these prisms act together, they produce a bright image focused at a point.</p>
     </section>
     <main>
-        <canvas id= "simulation-canvas" height="400"></canvas>
-        <p id="magnification"></p>
-        <p id="objectx"></p>
-        <p id="objecty"></p>
-        <p id="imagex"></p>
-        <p id="imagey"></p>
+        <div class="simulation">
+            <canvas id= "simulation-canvas" height="400"></canvas>
+            <div class="simulation-input"> 
+                <h1>Focal Length (cm)</h1>
+                <input type="range" id="focal_length" class="parameter-slider" min="1" max="300" value="100">
+                <div class="slider-labels">
+                    <p>1 cm</p>
+                    <p id="focal_value"></p>
+                    <p>300 cm</p>
+                </div>
+            </div>
+            <div class="simulation-output">
+                <h1 class="heading">Simulation Data</h1>
+                <p id="magnification"></p>
+                <p id="objectx"></p>
+                <p id="objecty"></p>
+                <p id="imagex"></p>
+                <p id="imagey"></p>
+            </div>
+        </div>
     </main>
     <footer></footer>
     <script src="lens.js"></script>

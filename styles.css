@@ -8,7 +8,7 @@
     --title-font: monospace;
     --head-font: monospace;
     --body-font: sans-serif;
-  }
+}
 
 * {
     margin: 0;
@@ -17,8 +17,7 @@
     text-decoration: none;
 }
 
-/* whatever you call these default */
-
+/* Body styles */
 body {
     font-family: var(--body-font);
     color: var(--light-color);
@@ -28,6 +27,7 @@ body {
     align-items: center;
 }
 
+/* Headings */
 h1 {
     font-family: var(--head-font);
     color: var(--light-color);
@@ -36,26 +36,27 @@ h1 {
     margin-bottom: 5px;
 }
 
-/* navigation */
-
+/* Header */
 .header {
     font-family: var(--head-font);
     background: var(--dark-color);
-    padding: 1rem 1rem;
+    padding: 1rem;
     position: fixed;
     width: 100%;
     z-index: 100;
-    justify-content: space-between;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: baseline;
+    flex-wrap: wrap;
     row-gap: 10px;
 }
 
+/* Footer */
 .footer {
     border: 5px;
 }
 
+/* Title */
 .title {
     font-family: var(--title-font);
     color: var(--color1);
@@ -63,6 +64,7 @@ h1 {
     font-weight: bold;
 }
 
+/* Navigation */
 .navs {
     gap: 1rem;
 }
@@ -76,8 +78,7 @@ h1 {
     color: var(--color1);
 }
 
-/* sections */
-
+/* Hero Section */
 .hero {
     color: var(--medium-color);
     padding: 1rem 2rem;
@@ -85,9 +86,66 @@ h1 {
     text-align: center;
 }
 
+/* Simulation Section */
+.simulation {
+    display: grid;
+    row-gap: 20px;
+}
+
 #simulation-canvas {
-    background: #f0f9ff;
+    background: var(--light-color);
     margin: 1rem;
     border-radius: 0.5rem;
     z-index: 80;
+}
+
+/* Simulation Input */
+.simulation-input {
+    margin: 0 2rem;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Simulation Output */
+.simulation-output {
+    padding: 1rem;
+    background: var(--medium-color);
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+.simulation-output h1 {
+    color: var(--color1);
+}
+
+/* Parameter Slider */
+.parameter-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--light-color);
+    outline: none;
+    margin: 10px 0;
+}
+
+/* Slider Thumb */
+.parameter-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color1);
+    cursor: pointer;
+}
+
+#pisang-goreng {
+    width: 8rem;
+    text-align: center;
+    color: var(--medium-color);
 }

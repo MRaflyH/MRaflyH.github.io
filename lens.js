@@ -3,13 +3,13 @@ const ctx = canvas.getContext("2d");
 
 ctx.canvas.width = document.documentElement.clientWidth - 50;
 
-let focal_length = 150;
+let focal_length = 100;
 let magnification = 0;
 
 let object = {
     width: 10,
     height: 60,
-    x: canvas.width/2 - 2 * focal_length - 5,
+    x: canvas.width/2 - 205,
     y: canvas.height/2 - 60,
     isDragging: false
 };
@@ -62,6 +62,13 @@ function draw_object() {
     ctx.lineTo(canvas.width/2, 250);
     ctx.lineTo(ix, image.y);
     ctx.stroke();
+
+    document.getElementById("focal_value").innerHTML = focal_length+" cm";
+    document.getElementById("magnification").innerHTML = "x " + magnification.toFixed(2);
+    document.getElementById("objectx").innerHTML = (object.x + object.width / 2 - canvas.width / 2).toFixed(2)+" cm";
+    document.getElementById("objecty").innerHTML = (object.y - canvas.height / 2).toFixed(2)+" cm";
+    document.getElementById("imagex").innerHTML = (image.x + image.width / 2 - canvas.width / 2).toFixed(2)+" cm";
+    document.getElementById("imagey").innerHTML = (image.y - canvas.height / 2).toFixed(2)+" cm";
 }
 
 let offsetX, offsetY;
@@ -128,11 +135,6 @@ function end_drag() {
     ctx.canvas.width = document.documentElement.clientWidth - 50;
     object.x = Math.max(0, Math.min(object.x, canvas.width/2 - object.width));
     draw_object();
-    document.getElementById("magnification").innerHTML = magnification;
-    document.getElementById("objectx").innerHTML = object.x + object.width/2 - canvas.width/2;
-    document.getElementById("objecty").innerHTML = object.y - canvas.height/2;
-    document.getElementById("imagex").innerHTML = image.x + image.width/2 - canvas.width/2;
-    document.getElementById("imagey").innerHTML = image.y - canvas.height/2;
 };
 
 window.addEventListener("resize", function () {
@@ -169,5 +171,10 @@ function calculate_image() {
     image.y = canvas.height/2 + (canvas.height/2 - object.y) * magnification
     return;
 }
+
+document.getElementById('focal_length').addEventListener('input', (e) => {
+    focal_length = parseFloat(e.target.value);
+    draw_object();
+});
 
 draw_object();
