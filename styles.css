@@ -25,7 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    overflow-x: hidden; }
 
 /* Headings */
 h1 {
@@ -114,13 +114,14 @@ h1 {
 /* Simulation Output */
 .simulation-output {
     padding: 1rem;
-    background: var(--medium-color);
+    background: var(--light-color);
+    color: var(--dark-color);
     margin: 1rem;
     border-radius: 0.5rem;
 }
 
 .simulation-output h1 {
-    color: var(--color1);
+    color: var(--color2);
 }
 
 /* Parameter Slider */

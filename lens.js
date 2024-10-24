@@ -65,8 +65,8 @@ function draw_object() {
 
     document.getElementById("focal_value").innerHTML = focal_length+" cm";
     document.getElementById("magnification").innerHTML = "x " + magnification.toFixed(2);
-    document.getElementById("objectx").innerHTML = (object.x + object.width / 2 - canvas.width / 2).toFixed(2)+" cm";
-    document.getElementById("objecty").innerHTML = (object.y - canvas.height / 2).toFixed(2)+" cm";
+    document.getElementById("objectx").innerHTML = (-(object.x + object.width / 2 - canvas.width / 2)).toFixed(2)+" cm";
+    document.getElementById("objecty").innerHTML = (-(object.y - canvas.height / 2).toFixed(2))+" cm";
     document.getElementById("imagex").innerHTML = (image.x + image.width / 2 - canvas.width / 2).toFixed(2)+" cm";
     document.getElementById("imagey").innerHTML = (image.y - canvas.height / 2).toFixed(2)+" cm";
 }
@@ -85,11 +85,11 @@ canvas.addEventListener("mousedown", function (e) {
 canvas.addEventListener("touchstart", function (e) {
     const touch_pos = get_touch_pos(canvas, e);
     if (is_inside_object(touch_pos, object)) {
+        e.preventDefault();
         object.isDragging = true;
         offsetX = touch_pos.x - object.x;
         offsetY = touch_pos.y - object.y;
     }
-    e.preventDefault();
 });
 
 canvas.addEventListener("mousemove", function (e) {
@@ -115,6 +115,7 @@ canvas.addEventListener("mousemove", function (e) {
 canvas.addEventListener("touchmove", function (e) {
     const touch_pos = get_touch_pos(canvas, e);
     if (object.isDragging) {
+        e.preventDefault();
         const newX = touch_pos.x - offsetX;
         const newY = touch_pos.y - offsetY;
 
@@ -123,7 +124,6 @@ canvas.addEventListener("touchmove", function (e) {
 
         draw_object();
     }
-    e.preventDefault();
 });
 
 canvas.addEventListener("mouseup", end_drag);
